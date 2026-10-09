@@ -6,10 +6,10 @@ Discovers live hosts on your subnet, identifies them (hostname, MAC, vendor),
 and checks a curated list of common service ports.
 
     python3 netanalyze.py                       # scan your local /24
-    python3 netanalyze.py --subnet 192.168.0.0/24
-    python3 netanalyze.py --subnet 192.168.0.0/24 --md lan-report.md
-    python3 netanalyze.py --host 192.168.0.65    # deep-scan a single host
-    python3 netanalyze.py --host 192.168.0.65 --ports 22,80,443,32400
+    python3 netanalyze.py --subnet 192.168.1.0/24
+    python3 netanalyze.py --subnet 192.168.1.0/24 --md lan-report.md
+    python3 netanalyze.py --host 192.168.1.10    # deep-scan a single host
+    python3 netanalyze.py --host 192.168.1.10 --ports 22,80,443,32400
 
 Stdlib only. Python 3.8+. Works on Linux, macOS, and Windows.
 Be polite: only scan networks you own.
@@ -238,7 +238,7 @@ def write_markdown(path, subnet, rows):
 def main():
     ap = argparse.ArgumentParser(description="Home LAN analyzer (stdlib only)")
     ap.add_argument("--subnet", default=None,
-                    help="e.g. 192.168.0.0/24 (default: your local /24)")
+                    help="e.g. 192.168.1.0/24 (default: your local /24)")
     ap.add_argument("--host", default=None,
                     help="deep-scan a single host instead of sweeping")
     ap.add_argument("--ports", default=None,

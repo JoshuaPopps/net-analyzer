@@ -23,13 +23,13 @@ cd net-analyzer
 python3 netanalyze.py
 
 # Scan a specific subnet, save a markdown report
-python3 netanalyze.py --subnet 192.168.0.0/24 --md lan-report.md
+python3 netanalyze.py --subnet 192.168.1.0/24 --md lan-report.md
 
 # Deep-scan a single host
-python3 netanalyze.py --host 192.168.0.65
+python3 netanalyze.py --host 192.168.1.10
 
 # Custom port list
-python3 netanalyze.py --host 192.168.0.65 --ports 22,80,443,32400
+python3 netanalyze.py --host 192.168.1.10 --ports 22,80,443,32400
 ```
 
 ## What it checks
@@ -43,12 +43,12 @@ python3 netanalyze.py --host 192.168.0.65 --ports 22,80,443,32400
   labels — SSH, SMB, Plex (32400), Ollama (11434/11435), Home Assistant
   (8123), Threadfin (34400), and more.
 
-## Sample output
+## Sample output (example data)
 
 ```
-IP               Hostname                  MAC                Vendor            Open ports
-192.168.0.65     umbrel                      26:64:51:07:74:67                    22/SSH, 53/DNS, 80/HTTP, 445/SMB
-192.168.0.68                              54:B2:03:08:01:9C                    22/SSH, 80/HTTP, 135/MS-RPC
+IP               Hostname   MAC                Vendor     Open ports
+192.168.1.10     server     02:00:5e:10:00:0a  Example    22/SSH, 80/HTTP, 445/SMB
+192.168.1.25     laptop     02:00:5e:10:00:19  Example    22/SSH, 135/MS-RPC
 ```
 
 ## Notes
